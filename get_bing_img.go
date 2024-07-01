@@ -22,7 +22,8 @@ func getHtml(url string) ([]string, error) {
 		return nil, err
 	}
 	defer response.Body.Close()
-	//defer close要与下文的goquery.NewDocumentFromReader在一个函数,否则就关闭了,啥也读取不到
+	//defer close要与下文的goquery.NewDocumentFromReader在一个函数,
+	//否则就关闭了,啥也读取不到
 
 	imgs := make([]string, 0)
 	doc, err := goquery.NewDocumentFromReader(response.Body)
